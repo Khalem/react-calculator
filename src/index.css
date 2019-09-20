@@ -30,3 +30,9 @@ button {
 .col-3, .col-6 {
   padding: 0;
 }
+
+h4 {
+  margin-top: 50px;
+  height: 1.5em;
+  opacity: .8;
+}

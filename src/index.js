@@ -18,6 +18,8 @@ class App extends React.Component {
         this.digitOnClick = this.digitOnClick.bind(this);
         this.addition = this.addition.bind(this);
         this.execute = this.execute.bind(this);
+        this.clearAll = this.clearAll.bind(this);
+        this.clearValue = this.clearValue.bind(this);
     }
 
     digitOnClick(event) {
@@ -52,17 +54,30 @@ class App extends React.Component {
         }
     }
 
+    clearAll() {
+        this.setState({
+            value: "",
+            path: []
+        });
+    }
+
+    clearValue() {
+        this.setState({ value: "" });
+    }
+
     render() {
         return(
             <div>
                 <h1 className="center">React Calculator</h1>
                 <div className="center center-block">
-                    <p>{this.state.path}</p>
-                    <p>{this.state.value ? this.state.value : "0"}</p>
+                    <h4>{this.state.path}</h4>
+                    <h2>{this.state.value ? this.state.value : "0"}</h2>
                     <Buttons 
                     digitOnClick={(event) => this.digitOnClick(event)}
                     addition={this.addition}
                     execute={this.execute}
+                    clearAll={this.clearAll}
+                    clearValue={this.clearValue}
                     />
                 </div>
             </div>

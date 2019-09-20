@@ -7,8 +7,11 @@ const Buttons = props => {
         <div className="row">
             <div className="col-12 offset-xl-4 col-xl-4">
                 <div className="row">
-                    <div className="col-6">
-                        <button>AC</button>
+                    <div className="col-3">
+                        <button onClick={props.clearAll}>C</button>
+                    </div>
+                    <div className="col-3">
+                    <button onClick={props.clearValue}>CE</button>
                     </div>
                     <div className="col-3">
                         <button>/</button>
