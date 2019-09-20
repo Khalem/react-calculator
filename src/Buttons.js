@@ -19,13 +19,13 @@ const Buttons = props => {
                 </div>
                 <div className="row">
                     <div className="col-3">
-                        <button>7</button>
+                        <button onClick={props.digitOnClick} value="7">7</button>
                     </div>
                     <div className="col-3">
-                    <button>8</button>
+                    <button onClick={props.digitOnClick} value="8">8</button>
                     </div>
                     <div className="col-3">
-                    <button>9</button>
+                    <button onClick={props.digitOnClick} value="9">9</button>
                     </div>
                     <div className="col-3">
                     <button>-</button>
@@ -33,27 +33,27 @@ const Buttons = props => {
                 </div>
                 <div className="row">
                     <div className="col-3">
-                    <button>4</button>
+                    <button onClick={props.digitOnClick} value="4">4</button>
                     </div>
                     <div className="col-3">
-                    <button>5</button>
+                    <button onClick={props.digitOnClick} value="5">5</button>
                     </div>
                     <div className="col-3">
-                    <button>6</button>
+                    <button onClick={props.digitOnClick} value="6">6</button>
                     </div>
                     <div className="col-3">
-                    <button>+</button>
+                    <button onClick={props.addition}>+</button>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-3">
-                    <button>1</button>
+                    <button onClick={props.digitOnClick} value="1">1</button>
                     </div>
                     <div className="col-3">
-                    <button>2</button>
+                    <button onClick={props.digitOnClick} value="2">2</button>
                     </div>
                     <div className="col-3">
-                    <button>3</button>
+                    <button onClick={props.digitOnClick} value="3">3</button>
                     </div>
                     <div className="col-3">
                     <button>+-</button>
@@ -64,10 +64,10 @@ const Buttons = props => {
                     <button>.</button>
                     </div>
                     <div className="col-3">
-                    <button>0</button>
+                    <button onClick={props.digitOnClick} value="2">0</button>
                     </div>
                     <div className="col-6">
-                    <button>=</button>
+                    <button onClick={props.execute}>=</button>
                     </div>
                 </div>
             </div>
