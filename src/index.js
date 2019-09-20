@@ -16,7 +16,7 @@ class App extends React.Component {
         }
 
         this.digitOnClick = this.digitOnClick.bind(this);
-        this.addition = this.addition.bind(this);
+        this.calculation = this.calculation.bind(this);
         this.execute = this.execute.bind(this);
         this.clearAll = this.clearAll.bind(this);
         this.clearValue = this.clearValue.bind(this);
@@ -34,11 +34,11 @@ class App extends React.Component {
         }
     }
 
-    addition() {
+    calculation(event) {
         if (this.state.needDigit === false) {
             let newPath = this.state.path;
             newPath.push(this.state.value);
-            newPath.push("+");
+            newPath.push(event.target.value);
             this.setState({ path: newPath, needDigit: true, symbolClicked: true});
         }
     }
@@ -74,7 +74,7 @@ class App extends React.Component {
                     <h2>{this.state.value ? this.state.value : "0"}</h2>
                     <Buttons 
                     digitOnClick={(event) => this.digitOnClick(event)}
-                    addition={this.addition}
+                    calculation={(event) => this.calculation(event)}
                     execute={this.execute}
                     clearAll={this.clearAll}
                     clearValue={this.clearValue}
