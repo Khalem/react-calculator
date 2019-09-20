@@ -13,6 +13,7 @@ class App extends React.Component {
             needDigit: true,
             path: [],
             symbolClicked: false,
+            executed: false
         }
 
         this.digitOnClick = this.digitOnClick.bind(this);
@@ -36,29 +37,48 @@ class App extends React.Component {
     }
 
     calculation(event) {
-        if (this.state.needDigit === false) {
-            let newPath = this.state.path;
-            console.log(event.target.value);
+        if (this.state.needDigit === false || this.state.executed) {
+            if (this.state.executed) {
+                var newPath = [];
+            } else {
+                var newPath = this.state.path;
+            }
             newPath.push(this.state.value);
             newPath.push(event.target.value);
-            this.setState({ path: newPath, needDigit: true, symbolClicked: true});
+            this.setState({ path: newPath, needDigit: true, symbolClicked: true, executed: false});
+            if (this.state.path.length > 2 && this.state.path.length % 2 === 0) {
+                this.automaticExecute();
+            }
+        } else {
+            return false;
         }
     }
 
     execute() {
-        if (this.state.needDigit === false) {
+        if (this.state.path.length >= 2 && this.state.executed === false) {
             let newPath = this.state.path;
             newPath.push(this.state.value);
             this.setState({ path: newPath});
             let newStr = this.state.path.join("");
             let result = eval(newStr);
-            this.setState({value: result, needDigit: true, symbolClicked: true});
+            this.setState({value: result, needDigit: true, symbolClicked: true, executed: true});
+        } else {
+            return false;
         }
+            
+        
+    }
+
+    automaticExecute() {
+        let newPath = this.state.path.slice(0, this.state.path.length - 1);
+        let newStr = newPath.join("");
+        let result = eval(newStr);
+        this.setState({ value: result, needDigit: true, symbolClicked: true });
     }
 
     posNeg() {
         let value = this.state.value;
-        if (value[0] != "-") {
+        if (value[0] !== "-") {
             value = "-" + value;
             this.setState({ value: value });
         } else {
@@ -70,7 +90,10 @@ class App extends React.Component {
     clearAll() {
         this.setState({
             value: "",
-            path: []
+            needDigit: true,
+            path: [],
+            symbolClicked: false,
+            executed: false
         });
     }
 
@@ -81,8 +104,8 @@ class App extends React.Component {
     render() {
         return(
             <div>
-                <h1 className="center">React Calculator</h1>
-                <div className="center center-block">
+                <h1 className="center">React <span>Calculator</span></h1>
+                <div className="center center-block calculator">
                     <h4>{this.state.path}</h4>
                     <h2>{this.state.value ? this.state.value : "0"}</h2>
                     <Buttons 

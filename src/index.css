@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #22262b;
 }
 
 code {
@@ -23,16 +24,52 @@ code {
 button {
   width: 100%;
   height: 50px;
-  border: 2px solid #eeeeee;
+  border: 2px solid #343a42;
   background-color: #f6f6f6;
+  font-weight: 600;
+  transition: all .1s ease-in-out;
+}
+
+button:hover {
+  background-color: #ffffff;
 }
 
 .col-3, .col-6 {
   padding: 0;
 }
 
+h1 {
+  margin-top: 75px;
+  color: #f6f6f6;
+}
+
+h1 span {
+  color: #3bffc1;
+}
+
+h2 {
+  color: #f6f6f6;
+  background-color: #22262b;
+  max-width: 300px;
+  word-wrap: break-word;
+  position: relative;
+}
+
 h4 {
+  color: #f6f6f6;
   margin-top: 50px;
-  height: 1.5em;
+  min-height: 1.5em;
+  max-width: 300px;
   opacity: .8;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.calculator {
+  width: 310px;
+  background-color: #343a42;
+  padding: 0 10px 10px 10px;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(28,31,36,1);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(28,31,36,1);
+  box-shadow: 0px 0px 15px 0px rgba(28,31,36,1);
 }

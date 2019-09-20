@@ -4,9 +4,8 @@ import "./index.css";
 
 const Buttons = props => {
     return(
-        <div className="row">
-            <div className="col-12 offset-xl-4 col-xl-4">
-                <div className="row">
+        <div class="container">
+            <div className="row">
                     <div className="col-3">
                         <button onClick={props.clearAll}>C</button>
                     </div>
@@ -74,7 +73,6 @@ const Buttons = props => {
                     </div>
                 </div>
             </div>
-        </div>
     );
 }
 
